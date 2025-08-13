@@ -1,0 +1,9 @@
+[submodule "llvm-project"]
+	path = llvm-project
+	url = https://github.com/llvm/llvm-project.git
+[submodule "test/Prim-bench"]
+	path = test/Prim-bench
+	url = git@github.com:CMU-SAFARI/prim-benchmarks.git
+[submodule "test/PIM-tree"]
+	path = test/PIM-tree
+	url = git@github.com:cmuparlay/PIM-tree.git

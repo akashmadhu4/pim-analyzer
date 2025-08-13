@@ -1,0 +1,11 @@
+{
+    "files.associations": {
+        "*.inc": "cpp",
+        "string_view": "cpp",
+        "span": "cpp",
+        "*.def": "cpp",
+        "__config": "cpp",
+        "compare": "cpp",
+        "system_error": "cpp"
+    }
+}

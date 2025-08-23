@@ -17,7 +17,9 @@ message(STATUS "Using Clang libraries: ${CLANG_LIBS}")
 # Adding executable
 file(GLOB_RECURSE SOURCES 
     "src/*.cpp"
-    "src/*.cc"  
+    "src/*.cc"
+    "pim-checkers/*.cpp"
+    "pim-checkers/*.cc"
 )
 
 add_executable(pim-analyzer ${SOURCES})
@@ -27,6 +29,7 @@ target_include_directories(pim-analyzer PRIVATE
     ${LLVM_INCLUDE_DIRS}
     ${CLANG_INCLUDE_DIRS}
     ${CMAKE_CURRENT_SOURCE_DIR}/include
+    ${CMAKE_CURRENT_SOURCE_DIR}/pim-checkers
 )
 
 target_compile_options(pim-analyzer PRIVATE

@@ -207,6 +207,30 @@ pim-analyzer/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/pim-analyzer.dir/build.make CMakeFiles/pim-analyzer.dir/build
 .PHONY : pim-analyzer/fast
 
+pim-checkers/VerifyDpuAllocation.o: pim-checkers/VerifyDpuAllocation.cpp.o
+.PHONY : pim-checkers/VerifyDpuAllocation.o
+
+# target to build an object file
+pim-checkers/VerifyDpuAllocation.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/pim-analyzer.dir/build.make CMakeFiles/pim-analyzer.dir/pim-checkers/VerifyDpuAllocation.cpp.o
+.PHONY : pim-checkers/VerifyDpuAllocation.cpp.o
+
+pim-checkers/VerifyDpuAllocation.i: pim-checkers/VerifyDpuAllocation.cpp.i
+.PHONY : pim-checkers/VerifyDpuAllocation.i
+
+# target to preprocess a source file
+pim-checkers/VerifyDpuAllocation.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/pim-analyzer.dir/build.make CMakeFiles/pim-analyzer.dir/pim-checkers/VerifyDpuAllocation.cpp.i
+.PHONY : pim-checkers/VerifyDpuAllocation.cpp.i
+
+pim-checkers/VerifyDpuAllocation.s: pim-checkers/VerifyDpuAllocation.cpp.s
+.PHONY : pim-checkers/VerifyDpuAllocation.s
+
+# target to generate assembly for a file
+pim-checkers/VerifyDpuAllocation.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/pim-analyzer.dir/build.make CMakeFiles/pim-analyzer.dir/pim-checkers/VerifyDpuAllocation.cpp.s
+.PHONY : pim-checkers/VerifyDpuAllocation.cpp.s
+
 src/main.o: src/main.cpp.o
 .PHONY : src/main.o
 
@@ -246,6 +270,9 @@ help:
 	@echo "... target_parser_gen"
 	@echo "... vt_gen"
 	@echo "... pim-analyzer"
+	@echo "... pim-checkers/VerifyDpuAllocation.o"
+	@echo "... pim-checkers/VerifyDpuAllocation.i"
+	@echo "... pim-checkers/VerifyDpuAllocation.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"

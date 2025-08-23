@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/c++
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/pim/Akash_Research/pim-analyzer/llvm-project/llvm/include -I/home/pim/Akash_Research/pim-analyzer/llvm-project/build/include -I/home/pim/Akash_Research/pim-analyzer/llvm-project/clang/include -I/home/pim/Akash_Research/pim-analyzer/llvm-project/build/tools/clang/include -I/home/pim/Akash_Research/pim-analyzer/include
+CXX_INCLUDES = -I/home/pim/Akash_Research/pim-analyzer/llvm-project/llvm/include -I/home/pim/Akash_Research/pim-analyzer/llvm-project/build/include -I/home/pim/Akash_Research/pim-analyzer/llvm-project/clang/include -I/home/pim/Akash_Research/pim-analyzer/llvm-project/build/tools/clang/include -I/home/pim/Akash_Research/pim-analyzer/include -I/home/pim/Akash_Research/pim-analyzer/pim-checkers
 
 CXX_FLAGS = -std=gnu++17 -fno-rtti
 

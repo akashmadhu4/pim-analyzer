@@ -243,12 +243,12 @@ CMakeFiles/clang-tablegen-targets.dir/clean:
 CMakeFiles/pim-analyzer.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/pim-analyzer.dir/build.make CMakeFiles/pim-analyzer.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/pim-analyzer.dir/build.make CMakeFiles/pim-analyzer.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/pim/Akash_Research/pim-analyzer/build/CMakeFiles --progress-num=1,2 "Built target pim-analyzer"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/pim/Akash_Research/pim-analyzer/build/CMakeFiles --progress-num=1,2,3 "Built target pim-analyzer"
 .PHONY : CMakeFiles/pim-analyzer.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/pim-analyzer.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/pim/Akash_Research/pim-analyzer/build/CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/pim/Akash_Research/pim-analyzer/build/CMakeFiles 3
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/pim-analyzer.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/pim/Akash_Research/pim-analyzer/build/CMakeFiles 0
 .PHONY : CMakeFiles/pim-analyzer.dir/rule

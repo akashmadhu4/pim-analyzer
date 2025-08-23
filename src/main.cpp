@@ -1,9 +1,21 @@
+#include <iostream>
 #include <stdio.h>
 #include "clang/Tooling/CommonOptionsParser.h"
+#include "clang/Tooling/Tooling.h"
+#include "clang/StaticAnalyzer/Frontend/AnalysisConsumer.h"
+#include "clang/StaticAnalyzer/Frontend/CheckerRegistry.h"
 #include "llvm/Support/FileSystem.h"
 #include "llvm/Support/Path.h"
 #include "llvm/ADT/StringRef.h"
-#include <iostream>
+
+//checker header files
+#include "VerifyDpuAllocation.h"
+
+
+
+
+
+
 
 static llvm::cl::OptionCategory PIMAnalyzerCategory("PIM Analyzer Options");
 
@@ -17,6 +29,50 @@ static llvm::cl::opt<bool> CheckMRAMTransfers(
     llvm::cl::desc("Enable MRAM transfer rules checking"),
     llvm::cl::init(true),  
     llvm::cl::cat(PIMAnalyzerCategory));
+
+
+
+class PIMAnalyzerAction : public clang::ASTFrontendAction {
+public:
+    std::unique_ptr<clang::ASTConsumer> CreateASTConsumer(
+        clang::CompilerInstance &CI, llvm::StringRef InFile) override {
+
+        return  CreateAnalysisConsumer(CI);
+    }
+
+private:
+    std::unique_ptr<clang::ASTConsumer> CreateAnalysisConsumer(clang::CompilerInstance &CI) {
+
+
+
+        
+     
+        std::unique_ptr<clang::ento::AnalysisASTConsumer>AnalysisConsumer = clang::ento::CreateAnalysisConsumer(CI);
+
+        clang::AnalyzerOptions &analyzerOpts = CI.getAnalyzerOpts();
+
+        AnalysisConsumer->AddCheckerRegistrationFn([] (clang::ento::CheckerRegistry& Registry) {
+            std::cout<<"Registering Dpu Allocation Checker"<<std::endl;
+            Registry.addChecker<pim::VerifyDpuAllocationChecker>("pim.VerifyDpuAllocation",
+                                            "Verifies DPU allocations");
+
+            });
+
+        analyzerOpts.CheckersAndPackages = {
+            {"pim.VerifyDpuAllocation", true}    //other checkers are disabled , only pim specific checkers are enabled
+        };
+      
+        for (auto &Chk : analyzerOpts.CheckersAndPackages) {
+             llvm::errs() << "Checker requested: " << Chk.first
+                 << " -> " << (Chk.second ? "ENABLED" : "DISABLED") << "\n";
+        }
+
+
+        return std::move(AnalysisConsumer);
+
+    }
+};
+
 
 
 
@@ -72,10 +128,11 @@ int main(int argc,const char** argv){
         std::cout << source << "\n";
     });
 
-    
+
+     clang::tooling::ClangTool Tool(OptionsParser.getCompilations(), Sources);
 
 
-
+     Tool.run(clang::tooling::newFrontendActionFactory<PIMAnalyzerAction>().get());
 
 
     return 0;

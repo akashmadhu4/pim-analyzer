@@ -1,4 +1,6 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/pim-analyzer.dir/pim-checkers/VerifyDpuAllocation.cpp.o"
+  "CMakeFiles/pim-analyzer.dir/pim-checkers/VerifyDpuAllocation.cpp.o.d"
   "CMakeFiles/pim-analyzer.dir/src/main.cpp.o"
   "CMakeFiles/pim-analyzer.dir/src/main.cpp.o.d"
   "pim-analyzer"
